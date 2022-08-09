@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Demo eProject 4</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+	<style>
+
+	</style>
+
+</head>
+<body>
+	<div class="container">
+		<h1>ALL PRODUCTS</h1>
+		Products / row: 
+		<select id="selectMode">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+		</select>
+
+		Filter by Brands:
+		<select id="selectBrands">
+			<option selected>All Brands</option>
+			<option>Honda</option>
+			<option>Yamaha</option>
+			<option>SYM</option>
+			<option>Suzuki</option>
+		</select>
+
+		<div class="ui-widget">
+			<label for="txtSearch">Search:</label>
+			<input type="text" id="txtSearch">
+		</div>
+		<button id="btnSearch">Search</button>
+
+		Sort:
+		<select id="selectSort">
+			<option selected value="default">Featured</option>
+			<option value="PA">Price Ascending</option>
+			<option value="PD">Price Descending</option>
+			<option value="NA">Name Ascending</option>
+			<option value="ND">Name Descending</option>
+		</select>
+
+		<div>
+
+			<div class="row" id="divProducts">
+				<div class="col text-center border border-1">
+					<img src="images/honda.png" class="w-100">
+					<h4>PRODUCT NAME</h4>
+					<p class="display-5 fw-bold text-danger">$999,999,999</p>
+					<button class="btn btn-primary fw-bold px-4 py-2">
+						ADD TO CART
+					</button>
+				</div>
+
+				<div class="col text-center border border-1">
+					<img src="images/honda.png" class="w-100">
+					<h4>PRODUCT NAME</h4>
+					<p class="display-5 fw-bold text-danger">$999,999,999</p>
+					<button class="btn btn-primary fw-bold px-4 py-2">
+						ADD TO CART
+					</button>
+				</div>
+
+				<div class="col text-center border border-1">
+					<img src="images/honda.png" class="w-100">
+					<h4>PRODUCT NAME</h4>
+					<p class="display-5 fw-bold text-danger">$999,999,999</p>
+					<button class="btn btn-primary fw-bold px-4 py-2">
+						ADD TO CART
+					</button>
+				</div>
+
+
+			</div>
+
+		</div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+	<script>
+		function nonAccentVietnamese(str) {
+		    str = str.toLowerCase();
+		//     We can also use this instead of from line 11 to line 17
+		//     str = str.replace(/\u00E0|\u00E1|\u1EA1|\u1EA3|\u00E3|\u00E2|\u1EA7|\u1EA5|\u1EAD|\u1EA9|\u1EAB|\u0103|\u1EB1|\u1EAF|\u1EB7|\u1EB3|\u1EB5/g, "a");
+		//     str = str.replace(/\u00E8|\u00E9|\u1EB9|\u1EBB|\u1EBD|\u00EA|\u1EC1|\u1EBF|\u1EC7|\u1EC3|\u1EC5/g, "e");
+		//     str = str.replace(/\u00EC|\u00ED|\u1ECB|\u1EC9|\u0129/g, "i");
+		//     str = str.replace(/\u00F2|\u00F3|\u1ECD|\u1ECF|\u00F5|\u00F4|\u1ED3|\u1ED1|\u1ED9|\u1ED5|\u1ED7|\u01A1|\u1EDD|\u1EDB|\u1EE3|\u1EDF|\u1EE1/g, "o");
+		//     str = str.replace(/\u00F9|\u00FA|\u1EE5|\u1EE7|\u0169|\u01B0|\u1EEB|\u1EE9|\u1EF1|\u1EED|\u1EEF/g, "u");
+		//     str = str.replace(/\u1EF3|\u00FD|\u1EF5|\u1EF7|\u1EF9/g, "y");
+		//     str = str.replace(/\u0111/g, "d");
+		    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+		    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+		    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+		    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+		    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+		    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+		    str = str.replace(/đ/g, "d");
+		    // Some system encode vietnamese combining accent as individual utf-8 characters
+		    str = str.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, ""); // Huyền sắc hỏi ngã nặng 
+		    str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // Â, Ê, Ă, Ơ, Ư
+		    return str;
+		}
+	</script>
+
+	<script src="data.js"></script>
+	
+	<script>
+		// arrow function
+		var selectMode = document.getElementById("selectMode");
+		selectMode.addEventListener("change", function() {
+			
+			displayProducts();
+		});
+
+		var selectBrands = document.getElementById("selectBrands");
+		selectBrands.addEventListener("change", function() {
+
+			displayProducts();
+		});
+
+		var selectSort = document.getElementById("selectSort");
+		selectSort.addEventListener("change", function() {
+
+			displayProducts();
+		});
+
+		var btnSearch = document.getElementById("btnSearch");
+		btnSearch.addEventListener("click", function() {
+
+			displayProducts();
+		});
+
+		function sortProducts() {
+			var sortBy = selectSort.value;
+			console.log(sortBy);
+
+			for (var i = 0; i < data.length - 1; i++)
+				for (var j = i + 1; j < data.length; j++) {
+					var wrongOrder = false;
+					switch (sortBy) {
+						case "default": wrongOrder = data[i].id > data[j].id; break;
+						case "PA": wrongOrder = data[i].price > data[j].price; break;
+						case "PD": wrongOrder = data[i].price < data[j].price; break;
+						case "NA": wrongOrder = data[i].name.toLowerCase() > data[j].name.toLowerCase(); break;
+						case "ND": wrongOrder = data[i].name.toLowerCase() < data[j].name.toLowerCase(); break;
+					}
+					if (wrongOrder) {
+						var temp = data[i];
+						data[i] = data[j];
+						data[j] = temp;
+					}
+				}
+		}
+
+		function displayProducts() {
+			var divProducts = document.getElementById("divProducts");
+
+			divProducts.innerHTML = "";
+
+			var col_x = 12 / selectMode.value;
+
+			var selectedBrand = selectBrands.value;
+
+			var keyword = nonAccentVietnamese(txtSearch.value.toLowerCase());
+			// toUpperCase();
+
+			console.log(keyword);
+
+			sortProducts();
+
+			for (var item of data) {
+				if ((item.name == selectedBrand || selectedBrand == "All Brands") && nonAccentVietnamese(item.name.toLowerCase()).includes(keyword)) {
+
+					var col = `
+					<div class="col-${col_x} text-center border border-1">
+						<img src="images/${item.image_urls}" class="w-100">
+						<h4>${item.name}</h4>
+						<p class="display-5 fw-bold text-danger">$${item.price}</p>
+						<button class="btn btn-primary fw-bold px-4 py-2">
+							ADD TO CART
+						</button>
+					</div>
+					`;
+
+					divProducts.innerHTML += col;
+				}
+			}	
+		}
+	</script>
+
+	<script>
+		
+
+		$(function() {
+
+			var suggestions = [];
+			for (var item of data) {
+				suggestions.push(item.name);
+			}
+
+			console.log(suggestions);
+
+			$("#txtSearch" ).autocomplete({
+	      source: suggestions
+	    });
+		});
+	</script>
+</body>
+</html>
