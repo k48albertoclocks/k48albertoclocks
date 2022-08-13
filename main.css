@@ -1,0 +1,243 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.container{
+	margin: auto;
+}
+button.add,button.buy{
+	padding: 5px 30px;
+   border: 1px;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    z-index: 1;
+}
+.dropdown:hover .dropdown-content{
+   display: block;
+}
+
+
+
+p.hidetext{
+   white-space: nowrap; 
+   width: 250px; 
+   overflow: hidden;
+  text-overflow: ellipsis; 
+}
+.text:hover {
+    overflow: visible;
+    word-break: keep-all;
+}
+
+.fa-beat1:hover {
+  color: black;
+  animation: 1.5s ease 0s infinite beat;
+}
+.fa-beat2:hover {
+  color: black;
+  animation: 1s ease 0s infinite shake;
+}
+@keyframes shake {
+  0% { transform: rotate(0) scale(1.5, 1.5); }
+  15% { transform: rotate(5deg) scale(1.5, 1.5); }
+  30% { transform: rotate(-5deg)scale(1.2, 1.2); }
+  45% { transform: rotate(4deg)scale(1.2, 1.2); }
+  60% { transform: rotate(-4deg)scale(1.2, 1.2); }
+  75% { transform: rotate(2deg); }
+  85% { transform: rotate(-2deg); }
+  92% { transform: rotate(1deg); }
+  100% { transform: rotate(0); }
+}
+
+@keyframes beat {
+  0%, 50%, 100% { transform: scale(1.2, 1.2); }
+  30%, 80% { transform: scale(0.92, 0.95); }
+}
+
+.btn-hover {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 5px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
+
+.btn-hover.color-1 {
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+.btn-hover.color-2 {
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+.btn-hover.color-3 {
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+.btn-hover.color-4 {
+    background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+    box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
+}
+.btn-hover.color-5 {
+    background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+.btn-hover.color-6 {
+    background-image: linear-gradient(to right, #009245, #FCEE21, #00A8C5, #D9E021);
+    box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+}
+.btn-hover.color-7 {
+    background-image: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+    box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+}
+.btn-hover.color-8 {
+    background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+.btn-hover.color-9 {
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+.btn-hover.color-10 {
+        background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+    box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+.btn-hover.color-11 {
+       background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+}
+
+.love {
+  color: #989898;
+  margin-top: 10px;
+  position: relative;
+}
+.love i {
+  display: inline-block;
+  margin-top: 1px;
+}
+.love i:before {
+  font-size: 28px;
+}
+.love div {
+  display: inline-block;
+  margin-left: 60px;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.love.active {
+  color: #F73F52;
+}
+.love i.animated {
+  animation-name: love;
+  -webkit-animation-name: love;
+  -moz-animation-name: love;
+  -o-animation-name: love;
+  animation-fill-mode: backwards;
+  -moz-animation-fill-mode: backwards;
+  -o-animation-fill-mode: backwards;
+  -webkit-animation-fill-mode: backwards;
+  animation-duration: .5s;
+  -moz-animation-duration: .5s;
+  -webkit-animation-duration: .5s;
+  -o-animation-duration: .5s;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+@keyframes love {
+  0% {
+    top: 0px;
+    transform: rotate(0);
+    -moz-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -o-transform: rotate(0);
+  }
+  20% {
+    top: -10px;
+    transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
+    opacity: .8;
+  }
+  40% {
+    top: -20px;
+    transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+    opacity: .6;
+  }
+  60% {
+    top: -30px;
+    transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    opacity: .4;
+  }
+  80% {
+    top: -40px;
+    transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    -webkit-transform: rotate(-10deg);
+    -o-transform: rotate(-10deg);
+    opacity: .2;
+  }
+  100% {
+    top: -50px;
+    transform: rotate(0);
+    -moz-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -o-transform: rotate(0);
+    opacity: 0;
+  }
+}
+section.single footer .col:last-child .love {
+  float: none;
+  border: 2px solid #989898;
+  border-radius: 30px;
+  display: inline-block;
+  padding: 3px 12px;
+}
+section.single footer .col:last-child .love i {
+  transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+}
+section.single footer .col:last-child .love i.animated {
+  top: 3px;
+  left: 12px;
+}
+section.single footer .col:last-child .love.active {
+  background-color: #F73F52;
+  color: #fff;
+  border-color: #F73F52;
+}
